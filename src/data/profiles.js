@@ -1,0 +1,17 @@
+export const profiles = [
+  { id: 'bunny', name: 'Barnaby Bunny', emoji: '🐰', category: 'Animal', clue: 'Loves eating crunchy orange vegetables and has very long ears.' },
+  { id: 'kitty', name: 'Chloe Kitty', emoji: '🐱', category: 'Animal', clue: 'Purrs when happy and loves chasing after red laser dots.' },
+  { id: 'puppy', name: 'Pip Puppy', emoji: '🐶', category: 'Animal', clue: 'A loyal friend who loves going for walks and chewing bones.' },
+  { id: 'bear', name: 'Barnaby Bear', emoji: '🐻', category: 'Animal', clue: 'Enjoys eating honey from a jar and hibernating in winter.' },
+  { id: 'fox', name: 'Fiona Fox', emoji: '🦊', category: 'Animal', clue: 'A clever woodland creature with a bushy orange tail.' },
+  { id: 'duckling', name: 'Daisy Duckling', emoji: '🦆', category: 'Animal', clue: 'Loves splashing in puddles and says "quack quack".' },
+  { id: 'cupcake', name: 'Cherry Cupcake', emoji: '🧁', category: 'Food', clue: 'A sweet baked treat with frosting and a cherry on top.' },
+  { id: 'donut', name: 'Sprinkle Donut', emoji: '🍩', category: 'Food', clue: 'A round pastry with a hole in the middle, covered in icing.' },
+  { id: 'strawberry', name: 'Berry Sweet', emoji: '🍓', category: 'Food', clue: 'A small, red, juicy fruit with tiny seeds on the outside.' },
+  { id: 'boba', name: 'Bubble Tea', emoji: '🧋', category: 'Food', clue: 'A sweet milky drink filled with chewy tapioca pearls.' },
+  { id: 'pancake', name: 'Flapjack', emoji: '🥞', category: 'Food', clue: 'A flat, round breakfast food often served with syrup and butter.' },
+  { id: 'star', name: 'Twinkle Star', emoji: '⭐', category: 'Object', clue: 'Shines brightly in the night sky and grants wishes.' },
+  { id: 'cloud', name: 'Fluffy Cloud', emoji: '☁️', category: 'Object', clue: 'Floats high in the sky and looks like cotton candy.' },
+  { id: 'sun', name: 'Sunny Ray', emoji: '☀️', category: 'Object', clue: 'A giant star that gives warmth and light during the day.' },
+  { id: 'moon', name: 'Luna Moon', emoji: '🌙', category: 'Object', clue: 'Glows softly at night and controls the ocean tides.' },
+];

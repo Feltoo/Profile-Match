@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap');
+
+:root {
+  --bg-peach: #fff0f0;
+  --bg-table: #f9f8e8;
+  --bg-green: #dcf5d1;
+  --bg-blue: #cce5ff;
+  --border-color: #d1d0c5;
+  --text-primary: #333;
+  --heart-color: #e53935;
+  --clue-bg: #fff8dc;
+  --clue-border: #8b5a2b;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background-color: var(--bg-peach);
+  /* A cute subtle repeating pattern simulation */
+  background-image: radial-gradient(#ffdede 10%, transparent 11%), radial-gradient(#ffdede 10%, transparent 11%);
+  background-size: 60px 60px;
+  background-position: 0 0, 30px 30px;
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
