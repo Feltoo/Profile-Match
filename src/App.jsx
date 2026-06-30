@@ -151,9 +151,11 @@ function App() {
       <div className="clues-panel">
         <div className="clues-scroll">
           {level1.clues.map(clue => (
-            <div key={clue.id} className={`clue-card ${clue.status === 'highlight' ? 'highlight' : ''}`}>
-              {clue.text}
-            </div>
+            <div 
+              key={clue.id} 
+              className={`clue-card ${clue.status === 'highlight' ? 'highlight' : ''}`}
+              dangerouslySetInnerHTML={{ __html: clue.text }}
+            />
           ))}
         </div>
       </div>

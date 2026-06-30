@@ -54,27 +54,17 @@ export const level1 = {
   clues: [
     {
       id: 1,
-      text: "Cat with Ribbon is not next to cat with Collar",
-      status: "neutral" // UI styling for clues
+      text: "Cat with <span style='color: #2e7d32; font-weight: 800'>🎀 Ribbon</span> is <u>not</u> next to cat with <span style='color: #2e7d32; font-weight: 800'>📿 Collar</span>",
+      status: "highlight"
     },
     {
       id: 2,
-      text: "Oliver loves to eat fresh food in the fish market",
+      text: "<span style='color: #d81b60; font-weight: 800'>Oliver</span> loves to eat fresh food in the fish market",
       status: "neutral"
     },
     {
       id: 3,
-      text: "Christie loves a variety of Canned Food",
-      status: "neutral"
-    },
-    {
-      id: 4,
-      text: "Cat C wears Glasses and eats Chicken",
-      status: "neutral"
-    },
-    {
-      id: 5,
-      text: "Mochi is Cat E and does not wear a Collar",
+      text: "<span style='color: #d81b60; font-weight: 800'>Christie</span> loves a variety of <br/> <span style='color: #8e24aa; font-weight: 800'>🥫 Canned Food</span>",
       status: "neutral"
     }
   ]
