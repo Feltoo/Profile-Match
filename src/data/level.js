@@ -87,22 +87,17 @@ export const level1 = {
   clues: [
     {
       id: 1,
-      text: "The <span style='color: #2e7d32; font-weight: 800'>🗡️ Sword</span> is sold in the <span style='color: #d81b60; font-weight: 800'>🎪 Shop</span>",
+      text: "The 🛡️ <span style='color: #4CAF50;'>Shield</span> with the ❄️ <span style='color: #2196F3;'>Ice</span> element is owned by the 👱‍♂️ <span style='color: #8BC34A;'>Elf</span>",
       status: "neutral"
     },
     {
       id: 2,
-      text: "Santa owns the <span style='color: #fbc02d; font-weight: 800'>✨ Stars</span> weapon, which is extremely expensive",
+      text: "The 🔨 <span style='color: #4CAF50;'>Hammer</span> can be bought in the same 🎪 <span style='color: #9C27B0;'>Store</span> as the 🗡️ <span style='color: #4CAF50;'>Sword</span>",
       status: "neutral"
     },
     {
       id: 3,
-      text: "The <span style='color: #0288d1; font-weight: 800'>❄️ Ice</span> element is found in the <span style='color: #d84315; font-weight: 800'>🌋 Volcano</span>",
-      status: "highlight"
-    },
-    {
-      id: 4,
-      text: "The <span style='color: #8e24aa; font-weight: 800'>🦯 Spear</span> is rated 5 Stars and belongs to a Wizard",
+      text: "The 🦯 <span style='color: #4CAF50;'>Spear</span> is the ⭐⭐⭐⭐⭐ <span style='color: #8D6E63;'>Rarest</span> weapon in the world",
       status: "neutral"
     }
   ]

@@ -198,8 +198,9 @@
 /* Clues Panel */
 .clues-panel {
   margin: auto 1rem 1rem 1rem;
-  background: #b08d6a;
-  border: 3px solid #8b5a2b;
+  background: #9d7d5d; /* Match the dark brown */
+  border: 4px solid #ebd0a0; /* Thick beige inner border */
+  outline: 2px solid #9d7d5d; /* Outer thin brown border */
   border-radius: 12px;
   padding: 1.5rem 1rem 1rem 1rem;
   position: relative;
@@ -211,51 +212,65 @@
 .clues-panel::after {
   content: '';
   position: absolute;
-  top: 8px;
-  width: 6px;
-  height: 6px;
+  top: 6px;
+  width: 8px;
+  height: 8px;
   background: #ffeb3b;
-  border: 1px solid #cddc39;
   border-radius: 50%;
-  box-shadow: inset 1px 1px 2px rgba(255,255,255,0.8), 1px 1px 2px rgba(0,0,0,0.4);
+  box-shadow: 0 0 2px rgba(0,0,0,0.5);
 }
 
 .clues-panel::before {
-  left: 8px;
+  left: 6px;
 }
 
 .clues-panel::after {
-  right: 8px;
+  right: 6px;
 }
 
 .clues-scroll {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
-  overflow-x: auto;
-  padding-bottom: 0.5rem;
+  justify-content: center;
+  padding-top: 0.5rem;
 }
 
 .clue-card {
-  background: var(--clue-bg);
-  border: 2px solid #5a3c22;
-  box-shadow: inset 0 0 0 2px var(--clue-bg), inset 0 0 0 3px #5a3c22;
-  border-radius: 12px;
-  padding: 1rem;
-  min-width: 150px;
-  max-width: 200px;
+  position: relative;
+  background: #fdf5e6; /* Pale cream/yellow */
+  border: 2px solid #3e2723; /* Dark outer border */
+  box-shadow: inset 0 0 0 2px #fdf5e6, inset 0 0 0 4px #8b5a2b; /* Inner gap + inner brown border */
+  border-radius: 16px;
+  padding: 1.5rem 1rem 1rem 1rem;
+  width: calc(33.333% - 1rem); /* Try to fit 3 per row on desktop */
+  min-width: 140px;
   flex-shrink: 0;
-  font-weight: 500;
-  font-size: 0.9rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #333;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
 }
 
+/* The dark square in top-left */
+.clue-card::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  width: 20px;
+  height: 20px;
+  background-color: #3e2723;
+  border-radius: 6px;
+  border: 2px solid #fdf5e6;
+}
+
 .clue-card.highlight {
-  background: var(--bg-green);
-  box-shadow: inset 0 0 0 2px var(--bg-green), inset 0 0 0 3px #2e7d32;
-  border-color: #2e7d32;
+  background: #e8f5e9;
+  box-shadow: inset 0 0 0 2px #e8f5e9, inset 0 0 0 4px #2e7d32;
 }
 
 /* Overlay for game over */
