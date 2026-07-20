@@ -165,8 +165,9 @@ function App() {
             <div 
               key={clue.id} 
               className={`clue-card ${clue.status === 'highlight' ? 'highlight' : ''}`}
-              dangerouslySetInnerHTML={{ __html: clue.text }}
-            />
+            >
+              <div dangerouslySetInnerHTML={{ __html: clue.text }} />
+            </div>
           ))}
         </div>
       </div>
