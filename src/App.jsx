@@ -181,7 +181,7 @@ function App() {
             return (
               <div 
                 key={clue.id} 
-                className={`clue-card ${clue.status === 'highlight' ? 'highlight' : ''} ${isSolved ? 'solved' : ''}`}
+                className={`clue-card ${isSolved ? 'solved' : ''}`}
               >
                 <div dangerouslySetInnerHTML={{ __html: clue.text }} />
               </div>

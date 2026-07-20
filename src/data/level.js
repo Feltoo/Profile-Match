@@ -119,7 +119,7 @@ export const level1 = {
     { 
       id: 8, 
       text: "The ✨ <span style='color: #FBC02D;'>Stars</span> element weapon is the most expensive <span style='color: #4CAF50;'>$ $ $ $ $</span>", 
-      status: "highlight",
+      status: "neutral",
       check: (grid) => grid.hammer?.element?.id === 'e_stars' && grid.hammer?.value?.id === 'v_5'
     },
     { 
@@ -143,7 +143,7 @@ export const level1 = {
     { 
       id: 12, 
       text: "The ❄️ <span style='color: #2196F3;'>Ice</span> shield is the absolute cheapest weapon at just <span style='color: #4CAF50;'>$</span>", 
-      status: "highlight",
+      status: "neutral",
       check: (grid) => grid.shield?.element?.id === 'e_ice' && grid.shield?.value?.id === 'v_1'
     },
     { 
