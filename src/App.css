@@ -353,11 +353,29 @@
   background-color: #3e2723;
   border-radius: 6px;
   border: 2px solid #fdf5e6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
 }
 
 .clue-card.highlight {
   background: #e8f5e9;
   box-shadow: inset 0 0 0 2px #e8f5e9, inset 0 0 0 4px #2e7d32;
+}
+
+.clue-card.solved {
+  background: #dcedc8;
+  border-color: #2e7d32;
+  box-shadow: inset 0 0 0 2px #dcedc8, inset 0 0 0 4px #2e7d32;
+  color: #1b5e20;
+}
+
+.clue-card.solved::before {
+  content: '✔️';
+  background-color: #2e7d32;
+  border-color: #dcedc8;
+  color: white;
 }
 
 /* Overlay for game over */

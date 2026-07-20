@@ -167,27 +167,26 @@ function App() {
           </div>
           <div className="clues-badge-progress" style={{ 
             width: `calc(40px + ${(
-              level1.entities.reduce((acc, entity) => 
-                acc + level1.categories.filter(cat => gridState[entity.id]?.[cat.id]?.id === level1.solution[entity.id][cat.id]).length
-              , 0) / (level1.entities.length * level1.categories.length)
+              level1.clues.filter(clue => clue.check && clue.check(gridState)).length / level1.clues.length
             ) * 100}%)` 
           }}></div>
           <span className="clues-badge-text">
-            Clues: {level1.entities.reduce((acc, entity) => 
-              acc + level1.categories.filter(cat => gridState[entity.id]?.[cat.id]?.id === level1.solution[entity.id][cat.id]).length
-            , 0)}/{level1.entities.length * level1.categories.length}
+            Clues: {level1.clues.filter(clue => clue.check && clue.check(gridState)).length}/{level1.clues.length}
           </span>
         </div>
         
         <div className="clues-scroll">
-          {level1.clues.map(clue => (
-            <div 
-              key={clue.id} 
-              className={`clue-card ${clue.status === 'highlight' ? 'highlight' : ''}`}
-            >
-              <div dangerouslySetInnerHTML={{ __html: clue.text }} />
-            </div>
-          ))}
+          {level1.clues.map(clue => {
+            const isSolved = clue.check && clue.check(gridState);
+            return (
+              <div 
+                key={clue.id} 
+                className={`clue-card ${clue.status === 'highlight' ? 'highlight' : ''} ${isSolved ? 'solved' : ''}`}
+              >
+                <div dangerouslySetInnerHTML={{ __html: clue.text }} />
+              </div>
+            );
+          })}
         </div>
       </div>
 
