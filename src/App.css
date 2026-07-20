@@ -215,9 +215,13 @@
 .popover-btn .emoji {
   font-size: 0.9rem;
   margin-bottom: 2px;
-  letter-spacing: -2px; /* Pulls stars slightly closer together */
+  letter-spacing: -1px;
   max-width: 100%;
   display: block;
+  white-space: normal;
+  word-break: break-all;
+  overflow-wrap: anywhere;
+  line-height: 1.2;
 }
 
 /* Clues Panel */
