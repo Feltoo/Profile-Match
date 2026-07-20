@@ -56,11 +56,49 @@
 
 .logic-table .cat-header {
   padding: 0.5rem;
+  vertical-align: bottom;
+}
+
+.cat-image {
+  width: 100%;
+  max-width: 90px;
+  height: auto;
+  display: block;
+  margin: 0 auto 0.5rem auto;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.5); /* subtle background for the images */
 }
 
 .cat-emoji {
   font-size: 2rem;
   display: block;
+}
+
+/* Triangle indicators */
+.logic-table td {
+  cursor: pointer;
+  transition: background-color 0.2s;
+  background-color: #e8f5e9; /* Pale green base */
+}
+
+.logic-table td:nth-child(even) {
+  background-color: #f1f8e9; /* Slightly different green */
+}
+
+.locked-pink::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  border-top: 15px solid #e91e63;
+  border-left: 15px solid transparent;
+}
+
+.locked-green::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  border-top: 15px solid #00c853;
+  border-left: 15px solid transparent;
 }
 
 .logic-table .category-col {

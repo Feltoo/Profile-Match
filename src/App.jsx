@@ -91,7 +91,11 @@ function App() {
               <th className="category-col"></th>
               {level1.entities.map(entity => (
                 <th key={entity.id} className="cat-header">
-                  <span className="cat-emoji">{entity.emoji}</span>
+                  {entity.image ? (
+                    <img src={entity.image} alt={entity.label} className="cat-image" />
+                  ) : (
+                    <span className="cat-emoji">{entity.emoji}</span>
+                  )}
                   {entity.label}
                 </th>
               ))}
@@ -104,11 +108,18 @@ function App() {
                 {level1.entities.map(entity => {
                   const isActive = activeCell?.entityId === entity.id && activeCell?.categoryId === category.id;
                   const filledOption = gridState[entity.id]?.[category.id];
+                  
+                  // Specific logic to mimic the screenshot triangles
+                  let indicatorClass = '';
+                  if (filledOption) {
+                    if (category.id === 'element' && filledOption.id === 'e_fire') indicatorClass = 'locked-pink';
+                    if (category.id === 'origin' && filledOption.id === 'o_shop') indicatorClass = 'locked-green';
+                  }
 
                   return (
                     <td 
                       key={entity.id} 
-                      className={isActive ? 'active' : ''}
+                      className={`${isActive ? 'active' : ''} ${indicatorClass}`}
                       onClick={() => handleCellClick(entity.id, category.id)}
                     >
                       <div className="cell-content">

@@ -1,15 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap');
 
 :root {
-  --bg-peach: #fff0f0;
-  --bg-table: #f9f8e8;
-  --bg-green: #dcf5d1;
-  --bg-blue: #cce5ff;
-  --border-color: #d1d0c5;
-  --text-primary: #333;
+  --bg-peach: #f1f8e9; /* Changed to pale green for RPG theme */
+  --bg-table: #dcedc8; /* Light green header row */
+  --bg-green: #c8e6c9; /* Primary cell color */
+  --bg-blue: #b3e5fc;
+  --border-color: #81c784; /* Greenish border */
+  --text-primary: #1b5e20;
   --heart-color: #e53935;
-  --clue-bg: #fff8dc;
-  --clue-border: #8b5a2b;
+  --clue-bg: #f8fced;
+  --clue-border: #388e3c;
 }
 
 * {
@@ -21,10 +21,12 @@
 body {
   font-family: 'Nunito', sans-serif;
   background-color: var(--bg-peach);
-  /* A cute subtle repeating pattern simulation */
-  background-image: radial-gradient(#ffdede 10%, transparent 11%), radial-gradient(#ffdede 10%, transparent 11%);
-  background-size: 60px 60px;
-  background-position: 0 0, 30px 30px;
+  /* A cute subtle repeating pattern simulation (using dragon/scale-like curves via gradients) */
+  background-image: 
+    radial-gradient(circle at 100% 150%, var(--bg-peach) 24%, #e8f5e9 25%, #e8f5e9 28%, var(--bg-peach) 29%, var(--bg-peach) 36%, #e8f5e9 36%, #e8f5e9 40%, transparent 40%, transparent),
+    radial-gradient(circle at 0 150%, var(--bg-peach) 24%, #e8f5e9 25%, #e8f5e9 28%, var(--bg-peach) 29%, var(--bg-peach) 36%, #e8f5e9 36%, #e8f5e9 40%, transparent 40%, transparent);
+  background-size: 100px 50px;
+  background-position: 0 0, 50px 0;
   color: var(--text-primary);
   min-height: 100vh;
   display: flex;
