@@ -10,17 +10,6 @@ export const level1 = {
   ],
   categories: [
     {
-      id: 'type',
-      label: 'Type',
-      options: [
-        { id: 't_sword', label: 'Sword', emoji: '🗡️' },
-        { id: 't_spear', label: 'Spear', emoji: '🦯' },
-        { id: 't_shield', label: 'Shield', emoji: '🛡️' },
-        { id: 't_bow', label: 'Bow', emoji: '🏹' },
-        { id: 't_hammer', label: 'Hammer', emoji: '🔨' },
-      ]
-    },
-    {
       id: 'element',
       label: 'Element',
       options: [
@@ -48,7 +37,7 @@ export const level1 = {
       options: [
         { id: 'p_knight', label: 'Knight', emoji: '🛡️' },
         { id: 'p_wizard', label: 'Wizard', emoji: '🪄' },
-        { id: 'p_boy', label: 'Boy', emoji: '👱‍♂️' },
+        { id: 'p_boy', label: 'Elf', emoji: '👱‍♂️' },
         { id: 'p_potion', label: 'Potion', emoji: '🧪' },
         { id: 'p_santa', label: 'Santa', emoji: '🎅' },
       ]
@@ -78,16 +67,16 @@ export const level1 = {
   ],
   // The correct solution mapping entity -> category -> option.id
   solution: {
-    sword: { type: 't_sword', element: 'e_wood', origin: 'o_shop', owner: 'p_knight', rarity: 'r_3', value: 'v_3' },
-    spear: { type: 't_spear', element: 'e_fire', origin: 'o_cave', owner: 'p_wizard', rarity: 'r_5', value: 'v_2' },
-    shield: { type: 't_shield', element: 'e_ice', origin: 'o_volcano', owner: 'p_boy', rarity: 'r_2', value: 'v_1' },
-    bow: { type: 't_bow', element: 'e_fire', origin: 'o_ocean', owner: 'p_potion', rarity: 'r_1', value: 'v_4' },
-    hammer: { type: 't_hammer', element: 'e_stars', origin: 'o_shop', owner: 'p_santa', rarity: 'r_4', value: 'v_5' },
+    sword: { element: 'e_wood', origin: 'o_shop', owner: 'p_knight', rarity: 'r_3', value: 'v_3' },
+    spear: { element: 'e_fire', origin: 'o_cave', owner: 'p_wizard', rarity: 'r_5', value: 'v_2' },
+    shield: { element: 'e_ice', origin: 'o_volcano', owner: 'p_boy', rarity: 'r_2', value: 'v_1' },
+    bow: { element: 'e_fire', origin: 'o_ocean', owner: 'p_potion', rarity: 'r_1', value: 'v_4' },
+    hammer: { element: 'e_stars', origin: 'o_shop', owner: 'p_santa', rarity: 'r_4', value: 'v_5' },
   },
   clues: [
     { 
       id: 1, 
-      text: "The 🛡️ <span style='color: #4CAF50;'>Shield</span> with the ❄️ <span style='color: #2196F3;'>Ice</span> element is owned by the 👱‍♂️ <span style='color: #8BC34A;'>Boy</span>", 
+      text: "The 🛡️ <span style='color: #4CAF50;'>Shield</span> with the ❄️ <span style='color: #2196F3;'>Ice</span> element is owned by the 👱‍♂️ <span style='color: #8BC34A;'>Elf</span>", 
       status: "neutral",
       check: (grid) => grid.shield?.element?.id === 'e_ice' && grid.shield?.owner?.id === 'p_boy'
     },

@@ -167,14 +167,14 @@ function App() {
           <div className="clues-badge-progress" style={{ 
             width: `calc(40px + ${(
               level1.entities.reduce((acc, entity) => 
-                acc + level1.categories.filter(cat => cat.id !== 'type' && gridState[entity.id]?.[cat.id]?.id === level1.solution[entity.id][cat.id]).length
-              , 0) / (level1.entities.length * (level1.categories.length - 1))
+                acc + level1.categories.filter(cat => gridState[entity.id]?.[cat.id]?.id === level1.solution[entity.id][cat.id]).length
+              , 0) / (level1.entities.length * level1.categories.length)
             ) * 100}%)` 
           }}></div>
           <span className="clues-badge-text">
             Clues: {level1.entities.reduce((acc, entity) => 
-              acc + level1.categories.filter(cat => cat.id !== 'type' && gridState[entity.id]?.[cat.id]?.id === level1.solution[entity.id][cat.id]).length
-            , 0)}/{level1.entities.length * (level1.categories.length - 1)}
+              acc + level1.categories.filter(cat => gridState[entity.id]?.[cat.id]?.id === level1.solution[entity.id][cat.id]).length
+            , 0)}/{level1.entities.length * level1.categories.length}
           </span>
         </div>
         
