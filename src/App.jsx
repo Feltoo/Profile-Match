@@ -165,11 +165,11 @@ function App() {
           <div className="clues-badge-icon">
             <span style={{ fontSize: '1.4rem' }}>❔</span>
           </div>
-          <div className="clues-badge-progress" style={{ 
-            width: `calc(40px + ${(
-              level1.clues.filter(clue => clue.check && clue.check(gridState)).length / level1.clues.length
-            ) * 100}%)` 
-          }}></div>
+          <div className="clues-badge-track">
+            <div className="clues-badge-progress" style={{ 
+              width: `${(level1.clues.filter(clue => clue.check && clue.check(gridState)).length / level1.clues.length) * 100}%` 
+            }}></div>
+          </div>
           <span className="clues-badge-text">
             Clues: {level1.clues.filter(clue => clue.check && clue.check(gridState)).length}/{level1.clues.length}
           </span>
