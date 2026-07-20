@@ -141,6 +141,17 @@
   gap: 4px;
 }
 
+.cell-option.solved {
+  background: #dcedc8; /* Light green */
+  border-color: #33691e;
+  color: #1b5e20;
+}
+
+.solved-check {
+  font-size: 0.8rem;
+  margin-left: 2px;
+}
+
 /* Popover menu */
 .popover-container {
   position: absolute;

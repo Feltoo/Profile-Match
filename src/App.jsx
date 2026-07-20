@@ -124,9 +124,10 @@ function App() {
                     >
                       <div className="cell-content">
                         {filledOption && (
-                          <div className="cell-option">
+                          <div className="cell-option solved">
                             {filledOption.emoji && <span>{filledOption.emoji}</span>}
                             <span>{filledOption.label}</span>
+                            <span className="solved-check">✔️</span>
                           </div>
                         )}
                       </div>
