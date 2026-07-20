@@ -87,7 +87,7 @@ export const level1 = {
   clues: [
     { 
       id: 1, 
-      text: "The 🛡️ <span style='color: #4CAF50;'>Shield</span> with the ❄️ <span style='color: #2196F3;'>Ice</span> element is owned by the 👱‍♂️ <span style='color: #8BC34A;'>Elf</span>", 
+      text: "The 🛡️ <span style='color: #4CAF50;'>Shield</span> with the ❄️ <span style='color: #2196F3;'>Ice</span> element is owned by the 👱‍♂️ <span style='color: #8BC34A;'>Boy</span>", 
       status: "neutral",
       check: (grid) => grid.shield?.element?.id === 'e_ice' && grid.shield?.owner?.id === 'p_boy'
     },
