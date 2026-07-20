@@ -160,6 +160,14 @@ function App() {
       </div>
 
       <div className="clues-panel">
+        <div className="clues-badge">
+          <div className="clues-badge-icon">
+            <span style={{ fontSize: '1.4rem' }}>❔</span>
+          </div>
+          <div className="clues-badge-progress"></div>
+          <span className="clues-badge-text">Clues: {level1.clues.length}/15</span>
+        </div>
+        
         <div className="clues-scroll">
           {level1.clues.map(clue => (
             <div 

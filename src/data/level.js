@@ -85,20 +85,20 @@ export const level1 = {
     hammer: { type: 't_hammer', element: 'e_stars', origin: 'o_shop', owner: 'p_santa', rarity: 'r_4', value: 'v_5' },
   },
   clues: [
-    {
-      id: 1,
-      text: "The 🛡️ <span style='color: #4CAF50;'>Shield</span> with the ❄️ <span style='color: #2196F3;'>Ice</span> element is owned by the 👱‍♂️ <span style='color: #8BC34A;'>Elf</span>",
-      status: "neutral"
-    },
-    {
-      id: 2,
-      text: "The 🔨 <span style='color: #4CAF50;'>Hammer</span> can be bought in the same 🎪 <span style='color: #9C27B0;'>Store</span> as the 🗡️ <span style='color: #4CAF50;'>Sword</span>",
-      status: "neutral"
-    },
-    {
-      id: 3,
-      text: "The 🦯 <span style='color: #4CAF50;'>Spear</span> is the ⭐⭐⭐⭐⭐ <span style='color: #8D6E63;'>Rarest</span> weapon in the world",
-      status: "neutral"
-    }
+    { id: 1, text: "The 🛡️ <span style='color: #4CAF50;'>Shield</span> with the ❄️ <span style='color: #2196F3;'>Ice</span> element is owned by the 👱‍♂️ <span style='color: #8BC34A;'>Elf</span>", status: "neutral" },
+    { id: 2, text: "The 🔨 <span style='color: #4CAF50;'>Hammer</span> can be bought in the same 🎪 <span style='color: #9C27B0;'>Store</span> as the 🗡️ <span style='color: #4CAF50;'>Sword</span>", status: "neutral" },
+    { id: 3, text: "The 🦯 <span style='color: #4CAF50;'>Spear</span> is the ⭐⭐⭐⭐⭐ <span style='color: #8D6E63;'>Rarest</span> weapon in the world", status: "neutral" },
+    { id: 4, text: "The 🗡️ <span style='color: #4CAF50;'>Sword</span> is wielded by the brave 🛡️ <span style='color: #607D8B;'>Knight</span>", status: "neutral" },
+    { id: 5, text: "The 🏹 <span style='color: #4CAF50;'>Bow</span> is only ⭐ <span style='color: #8D6E63;'>1 Star</span> but costs a hefty 💲💲💲💲", status: "neutral" },
+    { id: 6, text: "The 🔨 <span style='color: #4CAF50;'>Hammer</span> is a highly rated ⭐⭐⭐⭐ <span style='color: #8D6E63;'>4 Star</span> artifact", status: "neutral" },
+    { id: 7, text: "The 🦯 <span style='color: #4CAF50;'>Spear</span> is hidden in a 🪨 <span style='color: #795548;'>Cave</span> by a 🪄 <span style='color: #9C27B0;'>Wizard</span>", status: "neutral" },
+    { id: 8, text: "The ✨ <span style='color: #FBC02D;'>Stars</span> element weapon is the most expensive 💲💲💲💲💲", status: "highlight" },
+    { id: 9, text: "The weapon found in the 🌊 <span style='color: #03A9F4;'>Ocean</span> belongs to a living 🧪 <span style='color: #E91E63;'>Potion</span>", status: "neutral" },
+    { id: 10, text: "The 🪵 <span style='color: #795548;'>Wood</span> element weapon has a normal price of 💲💲💲", status: "neutral" },
+    { id: 11, text: "The 🛡️ <span style='color: #607D8B;'>Knight's</span> weapon is rated ⭐⭐⭐ <span style='color: #8D6E63;'>3 Stars</span>", status: "neutral" },
+    { id: 12, text: "The ❄️ <span style='color: #2196F3;'>Ice</span> shield is the absolute cheapest weapon at just 💲", status: "highlight" },
+    { id: 13, text: "The 🛡️ <span style='color: #4CAF50;'>Shield</span> was forged deep inside the 🌋 <span style='color: #FF5722;'>Volcano</span>", status: "neutral" },
+    { id: 14, text: "The 🏹 <span style='color: #4CAF50;'>Bow</span> utilizes the destructive 🔥 <span style='color: #FF9800;'>Fire</span> element", status: "neutral" },
+    { id: 15, text: "The 🦯 <span style='color: #4CAF50;'>Spear</span> also utilizes the 🔥 <span style='color: #FF9800;'>Fire</span> element", status: "neutral" }
   ]
 };
