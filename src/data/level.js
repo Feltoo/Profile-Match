@@ -112,7 +112,7 @@ export const level1 = {
     },
     { 
       id: 7, 
-      text: "The 🦯 <span style='color: #4CAF50;'>Spear</span> is hidden in a <img src='/assets/cave_icon.png' style='width: 1.5em; height: 1.5em; vertical-align: middle; border-radius: 4px;' /> <span style='color: #795548;'>Cave</span> by a 🪄 <span style='color: #9C27B0;'>Wizard</span>", 
+      text: "The 🦯 <span style='color: #4CAF50;'>Spear</span> is hidden in a <img src='/assets/cave_icon.png' style='width: 1.5em; height: 1.5em; vertical-align: middle; border-radius: 4px; mix-blend-mode: multiply;' /> <span style='color: #795548;'>Cave</span> by a 🪄 <span style='color: #9C27B0;'>Wizard</span>", 
       status: "neutral",
       check: (grid) => grid.spear?.origin?.id === 'o_cave' && grid.spear?.owner?.id === 'p_wizard'
     },
