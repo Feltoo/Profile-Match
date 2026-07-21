@@ -166,6 +166,21 @@
   margin-left: 2px;
 }
 
+.option-image {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+.popover-image {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  margin-bottom: 2px;
+  border-radius: 4px;
+}
+
 /* Popover menu */
 .popover-container {
   position: absolute;

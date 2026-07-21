@@ -126,6 +126,7 @@ function App() {
                         {filledOption && (
                           <div className="cell-option solved">
                             {filledOption.emoji && <span>{filledOption.emoji}</span>}
+                            {filledOption.image && <img src={filledOption.image} alt={filledOption.label} className="option-image" />}
                             <span>{filledOption.label}</span>
                             <span className="solved-check">✔️</span>
                           </div>
@@ -145,6 +146,7 @@ function App() {
                                 onClick={() => handleOptionSelect(entity.id, category.id, opt)}
                               >
                                 {opt.emoji && <span className="emoji">{opt.emoji}</span>}
+                                {opt.image && <img src={opt.image} alt={opt.label} className="popover-image" />}
                                 <span>{opt.label}</span>
                               </button>
                             )

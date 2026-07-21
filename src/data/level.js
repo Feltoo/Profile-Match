@@ -25,7 +25,7 @@ export const level1 = {
       label: 'Origin',
       options: [
         { id: 'o_shop', label: 'Shop', emoji: '🎪' },
-        { id: 'o_cave', label: 'Cave', emoji: '🪨' },
+        { id: 'o_cave', label: 'Cave', image: '/assets/cave_icon.png' },
         { id: 'o_volcano', label: 'Volcano', emoji: '🌋' },
         { id: 'o_ocean', label: 'Ocean', emoji: '🌊' },
         { id: 'o_ruins', label: 'Ruins', emoji: '🏛️' },
@@ -112,7 +112,7 @@ export const level1 = {
     },
     { 
       id: 7, 
-      text: "The 🦯 <span style='color: #4CAF50;'>Spear</span> is hidden in a 🪨 <span style='color: #795548;'>Cave</span> by a 🪄 <span style='color: #9C27B0;'>Wizard</span>", 
+      text: "The 🦯 <span style='color: #4CAF50;'>Spear</span> is hidden in a <img src='/assets/cave_icon.png' style='width: 1.5em; height: 1.5em; vertical-align: middle; border-radius: 4px;' /> <span style='color: #795548;'>Cave</span> by a 🪄 <span style='color: #9C27B0;'>Wizard</span>", 
       status: "neutral",
       check: (grid) => grid.spear?.origin?.id === 'o_cave' && grid.spear?.owner?.id === 'p_wizard'
     },
