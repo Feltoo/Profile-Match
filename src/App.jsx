@@ -94,24 +94,18 @@ function App() {
             <tr>
               <th className="category-col"></th>
               {level1.entities.map(entity => {
-                const filledType = gridState[entity.id]?.['type'];
-                const weaponImage = filledType ? filledType.image : null;
+                // Check if all 6 categories are filled for this column
+                const filledTraits = Object.keys(gridState[entity.id] || {}).length;
+                const isSolved = filledTraits === level1.categories.length;
+                const displayImage = isSolved && entity.solvedImage ? entity.solvedImage : entity.image;
 
                 return (
                   <th key={entity.id} className="cat-header">
                     <div style={{ position: 'relative', width: '100%', maxWidth: '90px', margin: '0 auto 0.5rem auto' }}>
-                      {entity.image ? (
-                        <img src={entity.image} alt={entity.label} className="cat-image" style={{ margin: 0 }} />
+                      {displayImage ? (
+                        <img src={displayImage} alt={entity.label} className={`cat-image ${isSolved ? 'slide-in' : ''}`} style={{ margin: 0 }} />
                       ) : (
                         <span className="cat-emoji">{entity.emoji}</span>
-                      )}
-                      {weaponImage && (
-                        <img 
-                          src={weaponImage} 
-                          alt="Weapon Overlay" 
-                          className="cat-image slide-in" 
-                          style={{ position: 'absolute', top: 0, left: 0, margin: 0, mixBlendMode: 'multiply' }} 
-                        />
                       )}
                     </div>
                     {entity.label}

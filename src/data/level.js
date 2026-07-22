@@ -2,11 +2,11 @@ export const level1 = {
   id: 1,
   title: "Level 1: The Armory",
   entities: [
-    { id: 'pos_a', label: 'Weapon A', image: '/assets/generic_weapon_icon.png' },
-    { id: 'pos_b', label: 'Weapon B', image: '/assets/generic_weapon_icon.png' },
-    { id: 'pos_c', label: 'Weapon C', image: '/assets/generic_weapon_icon.png' },
-    { id: 'pos_d', label: 'Weapon D', image: '/assets/generic_weapon_icon.png' },
-    { id: 'pos_e', label: 'Weapon E', image: '/assets/generic_weapon_icon.png' },
+    { id: 'pos_a', label: 'Weapon A', image: '/assets/generic_weapon_icon.png', solvedImage: '/assets/solved_a_potion.png' },
+    { id: 'pos_b', label: 'Weapon B', image: '/assets/generic_weapon_icon.png', solvedImage: '/assets/solved_b_wizard.png' },
+    { id: 'pos_c', label: 'Weapon C', image: '/assets/generic_weapon_icon.png', solvedImage: '/assets/solved_c_knight.png' },
+    { id: 'pos_d', label: 'Weapon D', image: '/assets/generic_weapon_icon.png', solvedImage: '/assets/solved_d_elf.png' },
+    { id: 'pos_e', label: 'Weapon E', image: '/assets/generic_weapon_icon.png', solvedImage: '/assets/solved_e_santa.png' },
   ],
   categories: [
     {
