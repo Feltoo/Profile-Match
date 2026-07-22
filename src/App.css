@@ -79,7 +79,7 @@
   display: block;
   margin: 0 auto 0.5rem auto;
   border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.5); /* subtle background for the images */
+  mix-blend-mode: multiply;
 }
 
 .cat-emoji {

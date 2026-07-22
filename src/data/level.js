@@ -2,11 +2,11 @@ export const level1 = {
   id: 1,
   title: "Level 1: The Armory",
   entities: [
-    { id: 'pos_a', label: 'Weapon A', emoji: '🎒' },
-    { id: 'pos_b', label: 'Weapon B', emoji: '🎒' },
-    { id: 'pos_c', label: 'Weapon C', emoji: '🎒' },
-    { id: 'pos_d', label: 'Weapon D', emoji: '🎒' },
-    { id: 'pos_e', label: 'Weapon E', emoji: '🎒' },
+    { id: 'pos_a', label: 'Weapon A', image: '/assets/generic_weapon_icon.png' },
+    { id: 'pos_b', label: 'Weapon B', image: '/assets/generic_weapon_icon.png' },
+    { id: 'pos_c', label: 'Weapon C', image: '/assets/generic_weapon_icon.png' },
+    { id: 'pos_d', label: 'Weapon D', image: '/assets/generic_weapon_icon.png' },
+    { id: 'pos_e', label: 'Weapon E', image: '/assets/generic_weapon_icon.png' },
   ],
   categories: [
     {
