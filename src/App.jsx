@@ -94,19 +94,54 @@ function App() {
             <tr>
               <th className="category-col"></th>
               {level1.entities.map(entity => {
-                // Check if all 6 categories are filled for this column
-                const filledTraits = Object.keys(gridState[entity.id] || {}).length;
-                const isSolved = filledTraits === level1.categories.length;
-                const displayImage = isSolved && entity.solvedImage ? entity.solvedImage : entity.image;
+                const columnState = gridState[entity.id] || {};
+                const filledOrigin = columnState['origin'];
+                const filledOwner = columnState['owner'];
+                const filledType = columnState['type'];
+                const filledElement = columnState['element'];
 
                 return (
                   <th key={entity.id} className="cat-header">
-                    <div style={{ position: 'relative', width: '100%', maxWidth: '90px', margin: '0 auto 0.5rem auto' }}>
-                      {displayImage ? (
-                        <img src={displayImage} alt={entity.label} className={`cat-image ${isSolved ? 'slide-in' : ''}`} style={{ margin: 0 }} />
-                      ) : (
-                        <span className="cat-emoji">{entity.emoji}</span>
+                    <div style={{ position: 'relative', width: '100%', maxWidth: '90px', height: '90px', margin: '0 auto 0.5rem auto', overflow: 'hidden', borderRadius: '8px', backgroundColor: 'rgba(255, 255, 255, 0.5)' }}>
+                      
+                      {/* Layer 1: Background (Origin) */}
+                      {filledOrigin && (
+                        filledOrigin.emoji ? (
+                          <div className="slide-in" style={{ position: 'absolute', top: '-15px', left: '-5px', fontSize: '90px', opacity: 0.3, zIndex: 1, pointerEvents: 'none' }}>
+                            {filledOrigin.emoji}
+                          </div>
+                        ) : (
+                          <img src={filledOrigin.image} className="slide-in" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', opacity: 0.3, zIndex: 1, pointerEvents: 'none', objectFit: 'cover' }} />
+                        )
                       )}
+
+                      {/* Layer 2: Base Image (Generic Stick Figure) */}
+                      <img src={entity.image} alt="Base Character" style={{ position: 'absolute', top: 0, left: 0, margin: 0, width: '100%', height: '100%', zIndex: 2, mixBlendMode: 'multiply' }} />
+
+                      {/* Layer 3: Owner Avatar Accessory */}
+                      {filledOwner && (
+                        <div className="slide-in" style={{ position: 'absolute', top: '0px', left: '40px', fontSize: '35px', zIndex: 3, pointerEvents: 'none' }}>
+                          {filledOwner.emoji}
+                        </div>
+                      )}
+
+                      {/* Layer 4: Weapon Overlay */}
+                      {filledType && (
+                        <img 
+                          src={filledType.image} 
+                          alt="Weapon" 
+                          className="slide-in" 
+                          style={{ position: 'absolute', top: 0, left: 0, margin: 0, width: '100%', height: '100%', zIndex: 4, mixBlendMode: 'multiply' }} 
+                        />
+                      )}
+
+                      {/* Layer 5: Element Effect */}
+                      {filledElement && (
+                        <div className="slide-in" style={{ position: 'absolute', bottom: '0px', right: '5px', fontSize: '40px', zIndex: 5, pointerEvents: 'none', textShadow: '0 0 10px rgba(255,255,255,0.8)' }}>
+                          {filledElement.emoji}
+                        </div>
+                      )}
+
                     </div>
                     {entity.label}
                   </th>
