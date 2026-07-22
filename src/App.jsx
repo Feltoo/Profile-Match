@@ -4,13 +4,17 @@ import { level1 } from './data/level';
 
 function App() {
   // gridState maps entityId -> { categoryId -> optionId }
-  const [gridState, setGridState] = useState({});
+  const [gridState, setGridState] = useState(level1.initialState || {});
   const [activeCell, setActiveCell] = useState(null); // { entityId, categoryId }
   const [lives, setLives] = useState(3);
   const [gameState, setGameState] = useState('playing'); // 'playing', 'won', 'lost'
 
   const handleCellClick = (entityId, categoryId) => {
     if (gameState !== 'playing') return;
+    
+    // Check if cell is locked by initial state
+    if (level1.initialState?.[entityId]?.[categoryId]) return;
+
     // Toggle active cell off if clicking the same one
     if (activeCell && activeCell.entityId === entityId && activeCell.categoryId === categoryId) {
       setActiveCell(null);
@@ -69,7 +73,7 @@ function App() {
   }, [gridState]);
 
   const resetGame = () => {
-    setGridState({});
+    setGridState(level1.initialState || {});
     setActiveCell(null);
     setLives(3);
     setGameState('playing');
@@ -116,19 +120,22 @@ function App() {
                     if (category.id === 'origin' && filledOption.id === 'o_shop') indicatorClass = 'locked-green';
                   }
 
+                  const isLocked = level1.initialState?.[entity.id]?.[category.id];
+
                   return (
                     <td 
                       key={entity.id} 
-                      className={`${isActive ? 'active' : ''} ${indicatorClass}`}
+                      className={`${isActive ? 'active' : ''} ${indicatorClass} ${isLocked ? 'locked' : ''}`}
                       onClick={() => handleCellClick(entity.id, category.id)}
                     >
                       <div className="cell-content">
                         {filledOption && (
-                          <div className="cell-option solved">
+                          <div className={`cell-option ${isLocked ? 'locked-option' : 'solved'}`}>
+                            {isLocked && <span className="lock-icon">🔒</span>}
                             {filledOption.emoji && <span>{filledOption.emoji}</span>}
                             {filledOption.image && <img src={filledOption.image} alt={filledOption.label} className="option-image" />}
                             <span>{filledOption.label}</span>
-                            <span className="solved-check">✔️</span>
+                            {!isLocked && <span className="solved-check">✔️</span>}
                           </div>
                         )}
                       </div>
@@ -178,17 +185,26 @@ function App() {
         </div>
         
         <div className="clues-scroll">
-          {level1.clues.map(clue => {
-            const isSolved = clue.check && clue.check(gridState);
-            return (
-              <div 
-                key={clue.id} 
-                className={`clue-card ${isSolved ? 'solved' : ''}`}
-              >
-                <div dangerouslySetInnerHTML={{ __html: clue.text }} />
-              </div>
-            );
-          })}
+          {(() => {
+            const unsolvedIndices = level1.clues.map((c, i) => c.check && c.check(gridState) ? -1 : i).filter(i => i !== -1);
+            const firstUnsolvedIndex = unsolvedIndices.length > 0 ? unsolvedIndices[0] : level1.clues.length;
+            
+            return level1.clues.map((clue, index) => {
+              const isSolved = clue.check && clue.check(gridState);
+              const isVisible = index <= firstUnsolvedIndex + 1; // Always show the first unsolved + one more
+
+              if (!isVisible) return null;
+
+              return (
+                <div 
+                  key={clue.id} 
+                  className={`clue-card ${isSolved ? 'solved' : ''} slide-in`}
+                >
+                  <div dangerouslySetInnerHTML={{ __html: clue.text }} />
+                </div>
+              );
+            });
+          })()}
         </div>
       </div>
 

@@ -67,102 +67,73 @@ export const level1 = {
   ],
   // The correct solution mapping entity -> category -> option.id
   solution: {
-    sword: { element: 'e_wood', origin: 'o_shop', owner: 'p_knight', rarity: 'r_3', value: 'v_3' },
-    spear: { element: 'e_fire', origin: 'o_cave', owner: 'p_wizard', rarity: 'r_5', value: 'v_2' },
-    shield: { element: 'e_ice', origin: 'o_volcano', owner: 'p_boy', rarity: 'r_2', value: 'v_1' },
-    bow: { element: 'e_fire', origin: 'o_ocean', owner: 'p_potion', rarity: 'r_1', value: 'v_4' },
-    hammer: { element: 'e_stars', origin: 'o_shop', owner: 'p_santa', rarity: 'r_4', value: 'v_5' },
+    sword: { element: 'e_wood', origin: 'o_ruins', owner: 'p_potion', rarity: 'r_3', value: 'v_3' },
+    spear: { element: 'e_fire', origin: 'o_cave', owner: 'p_wizard', rarity: 'r_5', value: 'v_1' },
+    shield: { element: 'e_stars', origin: 'o_volcano', owner: 'p_knight', rarity: 'r_2', value: 'v_2' },
+    bow: { element: 'e_fire', origin: 'o_ocean', owner: 'p_boy', rarity: 'r_1', value: 'v_4' },
+    hammer: { element: 'e_ice', origin: 'o_shop', owner: 'p_santa', rarity: 'r_4', value: 'v_5' },
+  },
+  
+  initialState: {
+    spear: {
+      origin: { id: 'o_cave', label: 'Cave', image: '/assets/cave_icon.png' },
+      value: { id: 'v_1', label: 'Very Cheap', emoji: '💲' }
+    }
   },
   clues: [
     { 
       id: 1, 
-      text: "The 🛡️ <span style='color: #4CAF50;'>Shield</span> with the ❄️ <span style='color: #2196F3;'>Ice</span> element is owned by the 👱‍♂️ <span style='color: #8BC34A;'>Elf</span>", 
+      text: "Step 1: The 🪄 <span style='color: #9C27B0;'>Wizard</span> wields the weapon hidden in the <img src='/assets/cave_icon.png' style='width: 1.5em; height: 1.5em; vertical-align: middle; border-radius: 4px; mix-blend-mode: multiply;' /> <span style='color: #795548;'>Cavern</span>.", 
       status: "neutral",
-      check: (grid) => grid.shield?.element?.id === 'e_ice' && grid.shield?.owner?.id === 'p_boy'
+      check: (grid) => grid.spear?.owner?.id === 'p_wizard'
     },
     { 
       id: 2, 
-      text: "The 🔨 <span style='color: #4CAF50;'>Hammer</span> can be bought in the same 🎪 <span style='color: #9C27B0;'>Store</span> as the 🗡️ <span style='color: #4CAF50;'>Sword</span>", 
+      text: "Step 2: The 🛡️ <span style='color: #607D8B;'>Knight</span> is the proud owner of the defensive 🛡️ <span style='color: #4CAF50;'>Shield</span>.", 
       status: "neutral",
-      check: (grid) => grid.hammer?.origin?.id === 'o_shop' && grid.sword?.origin?.id === 'o_shop'
+      check: (grid) => grid.shield?.owner?.id === 'p_knight'
     },
     { 
       id: 3, 
-      text: "The 🦯 <span style='color: #4CAF50;'>Spear</span> is the ⭐⭐⭐⭐⭐ <span style='color: #8D6E63;'>Rarest</span> weapon in the world", 
+      text: "Step 3: The living 🧪 <span style='color: #E91E63;'>Potion</span> (Alchemist) uses the 🪵 <span style='color: #795548;'>Wood</span> element.", 
       status: "neutral",
-      check: (grid) => grid.spear?.rarity?.id === 'r_5'
+      check: (grid) => grid.sword?.owner?.id === 'p_potion' && grid.sword?.element?.id === 'e_wood' 
     },
     { 
       id: 4, 
-      text: "The 🗡️ <span style='color: #4CAF50;'>Sword</span> is wielded by the brave 🛡️ <span style='color: #607D8B;'>Knight</span>", 
+      text: "Step 4: The 🪵 <span style='color: #795548;'>Wood</span> element is infused in the 🗡️ <span style='color: #4CAF50;'>Sword</span>, which is a ⭐⭐⭐ <span style='color: #8D6E63;'>3 Star</span> weapon worth <span style='color: #4CAF50;'>$ $ $</span>.", 
       status: "neutral",
-      check: (grid) => grid.sword?.owner?.id === 'p_knight'
+      check: (grid) => grid.sword?.element?.id === 'e_wood' && grid.sword?.rarity?.id === 'r_3' && grid.sword?.value?.id === 'v_3'
     },
     { 
       id: 5, 
-      text: "The 🏹 <span style='color: #4CAF50;'>Bow</span> is only ⭐ <span style='color: #8D6E63;'>1 Star</span> but costs a hefty <span style='color: #4CAF50;'>$ $ $ $</span>", 
+      text: "Step 5: The farthest weapon (🔨 <span style='color: #4CAF50;'>Hammer</span>) is the most expensive at <span style='color: #4CAF50;'>$ $ $ $ $</span>, while the 🏹 <span style='color: #4CAF50;'>Bow</span> costs <span style='color: #4CAF50;'>$ $ $ $</span>.", 
       status: "neutral",
-      check: (grid) => grid.bow?.rarity?.id === 'r_1' && grid.bow?.value?.id === 'v_4'
+      check: (grid) => grid.hammer?.value?.id === 'v_5' && grid.bow?.value?.id === 'v_4'
     },
     { 
       id: 6, 
-      text: "The 🔨 <span style='color: #4CAF50;'>Hammer</span> is a highly rated ⭐⭐⭐⭐ <span style='color: #8D6E63;'>4 Star</span> artifact", 
+      text: "Step 6: 🎅 <span style='color: #D32F2F;'>Santa</span> bought his ⭐⭐⭐⭐ <span style='color: #8D6E63;'>4 Star</span> weapon from the 🎪 <span style='color: #9C27B0;'>Store</span>.", 
       status: "neutral",
-      check: (grid) => grid.hammer?.rarity?.id === 'r_4'
+      check: (grid) => grid.hammer?.owner?.id === 'p_santa' && grid.hammer?.rarity?.id === 'r_4' && grid.hammer?.origin?.id === 'o_shop'
     },
     { 
       id: 7, 
-      text: "The 🦯 <span style='color: #4CAF50;'>Spear</span> is hidden in a <img src='/assets/cave_icon.png' style='width: 1.5em; height: 1.5em; vertical-align: middle; border-radius: 4px; mix-blend-mode: multiply;' /> <span style='color: #795548;'>Cave</span> by a 🪄 <span style='color: #9C27B0;'>Wizard</span>", 
+      text: "Step 7: The 🏹 <span style='color: #4CAF50;'>Bow</span> and 🦯 <span style='color: #4CAF50;'>Spear</span> both utilize the destructive 🔥 <span style='color: #FF9800;'>Fire</span> element. The 🛡️ <span style='color: #4CAF50;'>Shield</span> uses the ✨ <span style='color: #FBC02D;'>Stars</span> (Light) element.", 
       status: "neutral",
-      check: (grid) => grid.spear?.origin?.id === 'o_cave' && grid.spear?.owner?.id === 'p_wizard'
+      check: (grid) => grid.bow?.element?.id === 'e_fire' && grid.spear?.element?.id === 'e_fire' && grid.shield?.element?.id === 'e_stars'
     },
     { 
       id: 8, 
-      text: "The ✨ <span style='color: #FBC02D;'>Stars</span> element weapon is the most expensive <span style='color: #4CAF50;'>$ $ $ $ $</span>", 
+      text: "Step 8: The 🦯 <span style='color: #4CAF50;'>Spear</span> is a legendary ⭐⭐⭐⭐⭐ <span style='color: #8D6E63;'>5 Star</span> weapon, while the 🏹 <span style='color: #4CAF50;'>Bow</span> found in the 🌊 <span style='color: #03A9F4;'>Ocean</span> is only ⭐ <span style='color: #8D6E63;'>1 Star</span>.", 
       status: "neutral",
-      check: (grid) => grid.hammer?.element?.id === 'e_stars' && grid.hammer?.value?.id === 'v_5'
+      check: (grid) => grid.spear?.rarity?.id === 'r_5' && grid.bow?.origin?.id === 'o_ocean' && grid.bow?.rarity?.id === 'r_1'
     },
     { 
       id: 9, 
-      text: "The weapon found in the 🌊 <span style='color: #03A9F4;'>Ocean</span> belongs to a living 🧪 <span style='color: #E91E63;'>Potion</span>", 
+      text: "Step 9: Fill in the remaining traits by elimination!", 
       status: "neutral",
-      check: (grid) => grid.bow?.origin?.id === 'o_ocean' && grid.bow?.owner?.id === 'p_potion'
-    },
-    { 
-      id: 10, 
-      text: "The 🪵 <span style='color: #795548;'>Wood</span> element weapon has a normal price of <span style='color: #4CAF50;'>$ $ $</span>", 
-      status: "neutral",
-      check: (grid) => grid.sword?.element?.id === 'e_wood' && grid.sword?.value?.id === 'v_3'
-    },
-    { 
-      id: 11, 
-      text: "The 🛡️ <span style='color: #607D8B;'>Knight's</span> weapon is rated ⭐⭐⭐ <span style='color: #8D6E63;'>3 Stars</span>", 
-      status: "neutral",
-      check: (grid) => grid.sword?.owner?.id === 'p_knight' && grid.sword?.rarity?.id === 'r_3'
-    },
-    { 
-      id: 12, 
-      text: "The ❄️ <span style='color: #2196F3;'>Ice</span> shield is the absolute cheapest weapon at just <span style='color: #4CAF50;'>$</span>", 
-      status: "neutral",
-      check: (grid) => grid.shield?.element?.id === 'e_ice' && grid.shield?.value?.id === 'v_1'
-    },
-    { 
-      id: 13, 
-      text: "The 🛡️ <span style='color: #4CAF50;'>Shield</span> was forged deep inside the 🌋 <span style='color: #FF5722;'>Volcano</span>", 
-      status: "neutral",
-      check: (grid) => grid.shield?.origin?.id === 'o_volcano'
-    },
-    { 
-      id: 14, 
-      text: "The 🏹 <span style='color: #4CAF50;'>Bow</span> utilizes the destructive 🔥 <span style='color: #FF9800;'>Fire</span> element", 
-      status: "neutral",
-      check: (grid) => grid.bow?.element?.id === 'e_fire'
-    },
-    { 
-      id: 15, 
-      text: "The 🦯 <span style='color: #4CAF50;'>Spear</span> also utilizes the 🔥 <span style='color: #FF9800;'>Fire</span> element", 
-      status: "neutral",
-      check: (grid) => grid.spear?.element?.id === 'e_fire'
+      check: (grid) => grid.sword?.origin?.id === 'o_ruins' && grid.shield?.rarity?.id === 'r_2' && grid.shield?.value?.id === 'v_2' && grid.bow?.owner?.id === 'p_boy' && grid.hammer?.element?.id === 'e_ice'
     }
   ]
 };
