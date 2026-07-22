@@ -31,6 +31,8 @@
 .grid-container {
   padding: 1rem;
   overflow-x: auto;
+  position: relative;
+  z-index: 10;
 }
 
 .logic-table {
