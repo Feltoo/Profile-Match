@@ -143,10 +143,13 @@ function App() {
                       {/* Popover Menu */}
                       {isActive && (
                         <div className="popover-container" onClick={e => e.stopPropagation()}>
-                          {category.options.map(opt => {
-                            // Don't show options already placed correctly elsewhere?
-                            // For simplicity, show all options.
-                            return (
+                          {category.options.filter(opt => {
+                            // Find if this option is already placed in ANY column for this category
+                            const isUsed = Object.values(gridState).some(
+                              entityMap => entityMap[category.id]?.id === opt.id
+                            );
+                            return !isUsed;
+                          }).map(opt => (
                               <button 
                                 key={opt.id} 
                                 className="popover-btn"
@@ -156,8 +159,7 @@ function App() {
                                 {opt.image && <img src={opt.image} alt={opt.label} className="popover-image" />}
                                 <span>{opt.label}</span>
                               </button>
-                            )
-                          })}
+                          ))}
                         </div>
                       )}
                     </td>
