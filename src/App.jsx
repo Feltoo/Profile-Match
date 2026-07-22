@@ -93,16 +93,31 @@ function App() {
           <thead>
             <tr>
               <th className="category-col"></th>
-              {level1.entities.map(entity => (
-                <th key={entity.id} className="cat-header">
-                  {entity.image ? (
-                    <img src={entity.image} alt={entity.label} className="cat-image" />
-                  ) : (
-                    <span className="cat-emoji">{entity.emoji}</span>
-                  )}
-                  {entity.label}
-                </th>
-              ))}
+              {level1.entities.map(entity => {
+                const filledType = gridState[entity.id]?.['type'];
+                const weaponImage = filledType ? filledType.image : null;
+
+                return (
+                  <th key={entity.id} className="cat-header">
+                    <div style={{ position: 'relative', width: '100%', maxWidth: '90px', margin: '0 auto 0.5rem auto' }}>
+                      {entity.image ? (
+                        <img src={entity.image} alt={entity.label} className="cat-image" style={{ margin: 0 }} />
+                      ) : (
+                        <span className="cat-emoji">{entity.emoji}</span>
+                      )}
+                      {weaponImage && (
+                        <img 
+                          src={weaponImage} 
+                          alt="Weapon Overlay" 
+                          className="cat-image slide-in" 
+                          style={{ position: 'absolute', top: 0, left: 0, margin: 0, mixBlendMode: 'multiply' }} 
+                        />
+                      )}
+                    </div>
+                    {entity.label}
+                  </th>
+                );
+              })}
             </tr>
           </thead>
           <tbody>
