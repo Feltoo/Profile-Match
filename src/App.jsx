@@ -115,8 +115,13 @@ function App() {
                         )
                       )}
 
-                      {/* Layer 2: Base Image (Generic Stick Figure) */}
-                      <img src={entity.image} alt="Base Character" style={{ position: 'absolute', top: 0, left: 0, margin: 0, width: '100%', height: '100%', zIndex: 2, mixBlendMode: 'multiply' }} />
+                      {/* Layer 2: Base Image (Generic Stick Figure OR Weapon Image) */}
+                      <img 
+                        src={filledType ? filledType.image : entity.image} 
+                        alt="Base Character" 
+                        className={filledType ? 'slide-in' : ''}
+                        style={{ position: 'absolute', top: 0, left: 0, margin: 0, width: '100%', height: '100%', zIndex: 2, mixBlendMode: 'multiply', objectFit: 'contain' }} 
+                      />
 
                       {/* Layer 3: Owner Avatar Accessory */}
                       {filledOwner && (
@@ -125,17 +130,7 @@ function App() {
                         </div>
                       )}
 
-                      {/* Layer 4: Weapon Overlay */}
-                      {filledType && (
-                        <img 
-                          src={filledType.image} 
-                          alt="Weapon" 
-                          className="slide-in" 
-                          style={{ position: 'absolute', top: 0, left: 0, margin: 0, width: '100%', height: '100%', zIndex: 4, mixBlendMode: 'multiply' }} 
-                        />
-                      )}
-
-                      {/* Layer 5: Element Effect */}
+                      {/* Layer 4: Element Effect */}
                       {filledElement && (
                         <div className="slide-in" style={{ position: 'absolute', bottom: '0px', right: '5px', fontSize: '40px', zIndex: 5, pointerEvents: 'none', textShadow: '0 0 10px rgba(255,255,255,0.8)' }}>
                           {filledElement.emoji}
